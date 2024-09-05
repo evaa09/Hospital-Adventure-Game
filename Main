@@ -1,0 +1,998 @@
+////////// Eva Abdul: Escape the Hospital! /////
+//This is just a simple game with ASCII art formatting, conditionals, loops and user i/o//
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+
+    
+    ////////// START OF GAME //////////
+
+    
+    ///// Introduction and explaining game to user through ascii arts and minimal text /////
+    
+    System.out.println("\nWelcome to...");
+    // Ascii escape the hospital sign //
+    System.out.println(
+        "  ______  _____  _____          _____  ______   _______ _    _ ______   _    _  ____   _____ _____ _____ _______       _      ");
+    System.out.println(
+        " |  ____|/ ____|/ ____|   /\\   |  __ \\|  ____| |__   __| |  | |  ____| | |  | |/ __ \\ / ____|  __ \\_   _|__   __|/\\   | |     ");
+    System.out.println(
+        " | |__  | (___ | |       /  \\  | |__) | |__       | |  | |__| | |__    | |__| | |  | | (___ | |__) || |    | |  /  \\  | |     ");
+    System.out.println(
+        " |  __|  \\___ \\| |      / /\\ \\ |  ___/|  __|      | |  |  __  |  __|   |  __  | |  | |\\___ \\|  ___/ | |    | | / /\\ \\ | |     ");
+    System.out.println(
+        " | |____ ____) | |____ / ____ \\| |    | |____     | |  | |  | | |____  | |  | | |__| |____) | |    _| |_   | |/ ____ \\| |____ ");
+    System.out.println(
+        " |______|_____/ \\_____/_/    \\_\\_|    |______|    |_|  |_|  |_|______| |_|  |_|\\____/|_____/|_|   |_____|  |_/_/    \\_\\______|");
+
+    System.out
+        .println("\n\n\n\n\n\nOn Sunday morning your 8am alarm goes off. Waking you up from your blissful sleep.");
+    // Ascii alarm clock //
+    System.out.println("                        .-'`'-.");
+    System.out.println("              ,-'`'.   '._     \\     ______");
+    System.out.println("             /    .'  ___ `-._  |    \\ .-'`");
+    System.out.println("            |   .' ,-' __ `'/.`.'  ___\\\\");
+    System.out.println("    ______  \\ .' \\',-' 12 '-.  '.  `-._ \\");
+    System.out.println("    '`-. /   ` / / 11    7 1 `.  `.    '.\\");
+    System.out.println("       //___  . '10     /    2 \\  ;");
+    System.out.println("      / _.-'  | |      O      3|  |  ______");
+    System.out.println("     /.'      | |9      \\      '  '  '`-. /");
+    System.out.println("       ______ '  \\ 8     \\   4/  /      //___");
+    System.out.println("       \\ .-'`  '. `'.7  6  5.'  '      / _.-'");
+    System.out.println("     ___\\\\       `. _ `'''` _.'\\\\-.   /.'");
+    System.out.println("     `-._ \\       .//`''--''   (   )mx");
+    System.out.println("         '.\\     (   )          '-`");
+    System.out.println("                  `-'");
+
+    System.out.println(
+        "\n\n\n\n\n\nYou want to go back to sleep but you pull yourself out of the warm comfort of your bed. You have a doctor's appointment at the hospital.");
+    // Ascii Bed //
+    System.out.println(" .::\"\"-,                      .::\"\"-.");
+    System.out.println("/::     \\                    /::     \\");
+    System.out.println("|::     |   _..--\"\"\"\"--.._   |::     |");
+    System.out.println("'\\:.__ /  .'              '.  \\:.__ /");
+    System.out.println(" ||____|.'                  '.||____|");
+    System.out.println(" ||:.  |                       |:.  |");
+    System.out.println(" ||:.  |                       |:.  |");
+    System.out.println(" ||:.  |                       |:.  |");
+    System.out.println(" ||:.  |  _..---\"````````'---. |:.  |");
+    System.out.println(" ||:.  | `                     \\:.  |");
+    System.out.println(" ||:.  |: :                .--._.-\"\"-;");
+    System.out.println(" ||:.  |: : _.---``````---/    '.   _.`.");
+    System.out.println(" ||:.  | .-'  _,'```'-...'   _ .-'.'    '-.");
+    System.out.println(" ||:. .-'   .'        '. . '      '.      `'.");
+    System.out.println(" ||: ;.' .`'        _. '`'-.         '.   . ''-._");
+    System.out.println(" ||:. :   '.     .'          '.  . ' ' '.`       '._");
+    System.out.println(" ||:. :    '. .'     .::\"\"-: .''.        ' .   . ' ' :::\"\"-.");
+    System.out.println(" ||:. '     ..' .    /::     \\    '.        . '.    /::     \\");
+    System.out.println(" ||:  :  . .'      '.|::     |    _.:---\"\"---.._'   |::     |");
+    System.out.println(" ||.  ;  .:          '\\:.__ /   .'              '.   \\:.__ /");
+    System.out.println(" ||:  ;  : '.       . ||____|_.'                  '._||____|");
+    System.out.println(" ||:  ;__:   '.   .'  ||:.  |                        ||:.  |");
+    System.out.println(" ||:___| \\     '. :   ||:.  |                        ||:.  |");
+    System.out.println(" [[____]  '.     '.-._||:.  |                        ||:.  |");
+    System.out.println("            '.    :   ||:.  |                        ||:.  |");
+    System.out.println("              '.  :   ||:.  |                        ||:.  |");
+    System.out.println("                '-:   ||:.  |                        ||:.  |");
+    System.out.println("                   '._||:.  |________________________||:.  |");
+    System.out.println("                      ||:___|'-.-'-.-'-.-'-.-'-.-'-.-||:___|");
+    System.out.println("                      [[____]                        [[____]");
+
+    System.out.println(
+        "\n\n\n\n\n\nYou get dressed and head to the hospital. When you get there the hospital seems empty but what hospital is busy on a Sunday moring anyways, right? ");
+    // Ascii hospital //
+    System.out.println("         _._._                       _._._");
+    System.out.println("        _|   |_                     _|   |");
+    System.out.println("        | ... |_._._._._._._._._._._| ... |");
+    System.out.println("        | ||| |  o    HOSPITAL   o  | ||| |");
+    System.out.println("        | \"\"\" |  \"\"\"    \"\"\"    \"\"\"  | \"\"\" |");
+    System.out.println("   ())  |[-|-]| [-|-]  [-|-]  [-|-] |[-|-]|  ())");
+    System.out.println("  (())) |     |---------------------|     | (()))");
+    System.out.println(" (())())| \"\"\" |  \"\"\"    \"\"\"    \"\"\"  | \"\"\" |(())())");
+    System.out.println(" (()))()|[-|-]|  :::   .-\"-.   :::  |[-|-]|(()))()");
+    System.out.println(" ()))(()|     | |~|~|  |_|_|  |~|~| |     |()))(()");
+    System.out.println("    ||  |_____|_|_|_|__|_|_|__|_|_|_|_____|  ||");
+    System.out.println(" ~ ~^^ @@@@@@@@@@@@@@/=======\\@@@@@@@@@@@@@@ ^^~ ~");
+    System.out.println("      ^~^~                                ~^~^");
+
+    System.out.println("\n\nAs you head inside you get the feeling that something has gone terribly wrong. You look around to find that the hospital had been trashed, the lights were flickering and there was no one in sight. ヾ(｡ꏿ﹏ꏿ)ﾉﾞ");
+
+    System.out.println("\n\nYou turn around to leave when the doors shut behind you. Locked. Terrified you run for another exit when you find a note in the waiting room. The note reads:");
+    
+    System.out.println("\n     Haha! You have fallen for my tricks. \n     My name is Dr.Hybern and \n     I have trapped you inside this hospital! \n     You must answer the following questions \n     to decide your fate. If \n     you answer the questions right\n     you will go free. As\n     you go further into the game,\n     it will get more difficult. \n     Choose wisely or fall into my\n     hands. Good Luck!");
+
+    System.out.println(
+        "\nYou start with 0 points and will gain more as you go. For every wrong answer you will be deducted points. You need at least 45 points to win. Have fun!");
+
+
+    //////////////////// LEVEL ONE ////////////////////
+
+    
+    ///Introducing user to level one ///
+    System.out.println("\nYou turn down the hall to see a nurse holding a sign, as you approach she says:");
+
+    // Ascii nurse
+    System.out.println("        _____       __________");
+    System.out.println("        \\_+_/      |");
+    System.out.println("       .//`\\\\.     |   _______");
+    System.out.println("       ((o,o))     |  |       |");
+    System.out.println("        '.=.'      |  | LEVEL |");
+    System.out.println("        _)_(_      |  |  ONE  |");
+    System.out.println("      /' \\ / '\\    |  | ,.,., |");
+    System.out.println("     / (_ | _) \\   |  |_______|");
+    System.out.println("    / / )_o_( \\ \\  |()");
+    System.out.println("    \\ \\/     \\/ /  |");
+    System.out.println("     \\/_)   (_\\/  _|__|~|_______");
+    System.out.println("      |       |  |______________");
+    System.out.println("      |       |   , ||, '");
+    System.out.println("      |_______|     ||  ,");
+    System.out.println("       \\  |  /      || ,");
+    System.out.println("\"Welcome! Answer the questions and then go up the elevator to the second floor.\"");
+
+    /// Showing user rules/stats for level one and initilizing all needed variables ///
+    System.out.println("\nLevel one:\n\n -Your points:0 \n -Points gained/lost per question: 5 \n -Tries per question: 3");
+    int times = 0;
+    int points = 0;
+    int tries = 0;
+    int userTries = 3;
+
+    ///// Question 1 /////
+    
+    System.out.print(
+        "\n\n\n Question 1: Which of your organs has stopped if you are experiencing a cardiac arrest?\n a) Lungs \n b) Heart \n c) Liver \n d) Brain \n\nYour Answer: ");
+    ///Getting user input, variable "ques"///
+    String ques = scan.nextLine();
+
+    /// While loop that enables user three tries per question if they get it wrong. ///
+    while (tries <= 2) {
+      /// if statement which breaks loop when answer correct, adding 5 points ///
+      if (ques.equalsIgnoreCase("b")) {
+        System.out.println("Correct!");
+        points = points + 5;
+        break;
+        
+      /// else if statement which enables third try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+      } else if (tries == 2 && (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d"))) {
+        tries = tries + 1;
+        userTries = userTries - 1;
+        System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+        
+      /// else if statement which enables second try to place, checks if the input was valid and displays amount of tries left ///
+      } else if (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d")) {
+        tries = tries + 1;
+        userTries = userTries - 1;
+        System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+        System.out.print("\nYour Answer: ");
+        ques = scan.nextLine();
+        
+      /// else statement which traps user in loop until they enter valid input ///
+      } else {
+        System.out.print(
+            "Invalid input, you must enter either a,b,c or d. This does not affect your 3 tries. Please try again.\n\nYour Answer: ");
+        ques = scan.nextLine();
+      }
+    }
+    /// Calculates and displays points to user. Also 'reset' variables for next question ///
+    points = points - (tries) * 5;
+    System.out.println("\nPoints: " + points);
+    tries = 0;
+    userTries = 3;
+
+    ///// Question 2 /////
+
+    System.out.print(
+        "\n\n\n Question 2: Brufen, Advil, Motrin and Nurofen are different brand names for which drug?\n a) Paracetamol \n b) Acetaminophen \n c) Ibuprofen \n d) Doxycycline  \n\nYour Answer: ");
+    ///Getting user input, variable "ques"///
+    ques = scan.nextLine();
+
+    /// While loop that enables user three tries per question if they get it wrong. ///
+    while (tries <= 2) {
+      /// if statement which breaks loop when answer correct, adding 5 points ///
+      if (ques.equalsIgnoreCase("c")) {
+        System.out.println("Correct!");
+        points = points + 5;
+        break;
+
+      /// else if statement which enables third try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+      } else if (tries == 2 && (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("d"))) {
+        tries = tries + 1;
+        userTries = userTries - 1;
+        System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+      /// else if statement which enables second try to place, checks if the input was valid and displays amount of tries left ///
+      } else if (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("d")) {
+        tries = tries + 1;
+        userTries = userTries - 1;
+        System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+        System.out.print("\nYour Answer: ");
+        ques = scan.nextLine();
+
+      /// else statement which traps user in loop until they enter valid input ///
+      } else {
+        System.out.print(
+            "Invalid input, you must enter either a,b,c or d. This does not affect your 3 tries. Please try again.\n\nYour Answer: ");
+        ques = scan.nextLine();
+      }
+    }
+    /// Calculates and displays points to user. Also 'reset' variables for next question ///
+    points = points - (tries) * 5;
+    System.out.println("\nPoints: " + points);
+    tries = 0;
+    userTries = 3;
+
+    ///// Question 3 /////
+
+    System.out.print(
+        "\n\n\n Question 2: What doctor has special training in diagnosing and treating diseases of the ear, nose, and throat?\n a) Otolaryngologist \n b) Pediatrician \n c) Optometrist  \n d) Cardiologist  \n\nYour Answer: ");
+    ///Getting user input, variable "ques"///
+    ques = scan.nextLine();
+
+    /// While loop that enables user three tries per question if they get it wrong. ///
+    while (tries <= 2) {
+      /// if statement which breaks loop when answer correct, adding 5 points ///
+      if (ques.equalsIgnoreCase("a")) {
+        System.out.println("Correct!");
+        points = points + 5;
+        break;
+
+      /// else if statement which enables third try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+      } else if (tries == 2 && (ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d"))) {
+        tries = tries + 1;
+        userTries = userTries - 1;
+        System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+        /// else if statement which enables second try to place, checks if the input was valid and displays amount of tries left ///
+      } else if (ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d")) {
+        tries = tries + 1;
+        userTries = userTries - 1;
+        System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+        System.out.print("\nYour Answer: ");
+        ques = scan.nextLine();
+
+      /// else statement which traps user in loop until they enter valid input ///
+      } else {
+        System.out.print(
+            "Invalid input, you must enter either a,b,c or d. This does not affect your 3 tries. Please try again.\n\nYour Answer: ");
+        ques = scan.nextLine();
+      }
+    }
+    /// Calculates and displays points to user. Also 'reset' variables for next question ///
+    points = points - (tries) * 5;
+    System.out.println("\nPoints: " + points);
+    tries = 0;
+    userTries = 2;
+
+    /// Indicated end of the first level 
+    System.out.println("\n\nEND OF LEVEL ONE!");
+
+
+    //////////////////// LEVEL TWO ////////////////////
+
+    /// Introducing user to level two ///
+    System.out.println("\n\nYou go into the elevator and press the button for the second floor...");
+
+    /// Ascii elevator
+    System.out.println("           .---.");
+    System.out.println("          /__\\__\\");
+    System.out.println("     .---------------.");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     .---------------.");
+
+    System.out.println("\n\nAs you step out of the elevator, another nurse greets you and says:");
+
+    // Ascii nurse
+    System.out.println("     _____");
+    System.out.println("    ,\\_+_/,");
+    System.out.println("   '((\"\"\"))'");
+    System.out.println("   '(|o,o|)'");
+    System.out.println("    '; = ;'");
+    System.out.println("     _) (_");
+    System.out.println("   /' \\_/ '\\");
+    System.out.println("  /\\(_ : _)/\\");
+    System.out.println(" /||/)___( \\ \\");
+    System.out.println(" \\|_)'    \\/ /");
+    System.out.println("   |      (_/");
+    System.out.println("   |       |");
+    System.out.println("   |       |");
+    System.out.println("   |_______|");
+    System.out.println("    \\  |  /");
+    System.out.println("     : | :");
+    System.out.println("     ; | ;");
+    System.out.println("\"Welcome to level two! Answer the questions and then go up the elevator to the third floor\"");
+    System.out.println("");
+    System.out.println("");
+    
+    /// Showing user rules/stats for level two ///
+    System.out.println("\n\n\nLevel two:\n\n -Your points: " + points
+    + " \n -Points gained/lost per question: 10 \n -Tries per question: 2");
+
+    /// if statement which directs user to a different set of questions based on points they have earned (total 2 paths) ///
+    if (points >= 10) {
+
+      /////Question 4.1/////
+      
+      System.out.print("\n\n\n Question 4: What is a drug derived from poppies?\n a) Opium \n b) Methanphatamine \n c) Ibuprofen \n d) Alprazolam \n\nYour Answer: ");
+      ///Getting user input, variable "ques"///
+      ques = scan.nextLine();
+
+      /// While loop that enables user two tries per question if they get it wrong. ///
+      while (tries <= 1) {
+        /// if statement which breaks loop when answer correct, adding 10 points ///
+        if (ques.equalsIgnoreCase("a")) {
+          System.out.println("Correct!");
+          points = points + 10;
+          break;
+
+        /// else if statement which enables second try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+        } else if (tries == 1 && (ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d"))) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+        /// else if statement which enables first try to place, checks if the input was valid and displays amount of tries left ///
+        } else if (ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d")) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+          System.out.print("\nYour Answer: ");
+          ques = scan.nextLine();
+
+        /// else statement which traps user in loop until they enter valid input ///
+        } else {
+          System.out.print(
+              "Invalid input, you must enter either a,b,c or d. This does not affect your 2 tries. Please try again.\n\nYour Answer: ");
+          ques = scan.nextLine();
+        }
+      }
+      /// Displaying points to user and resetting variables for next question ///
+      points = points - (tries) * 10;
+      System.out.println("\nPoints: " + points);
+      tries = 0;
+      userTries = 2;
+      
+
+      ///// Question 5.1/////
+
+      System.out.print("\n\n\n Question 5: What is the medical name of the drug Xanax?\n a) Paroxetine \n b) Fluoxetine \n c) Fluvoxamine \n d) Alprazolam \n\nYour Answer: ");
+      ///Getting user input, variable "ques"///
+      ques = scan.nextLine();
+
+      /// While loop that enables user two tries per question if they get it wrong. ///
+      while (tries <= 1) {
+        /// if statement which breaks loop when answer correct, adding 10 points ///
+        if (ques.equalsIgnoreCase("d")) {
+          System.out.println("Correct!");
+          points = points + 10;
+          break;
+
+        /// else if statement which enables second try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+        } else if (tries == 1 && (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c"))) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+        /// else if statement which enables first try to place, checks if the input was valid and displays amount of tries left ///
+        } else if (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c")) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+          System.out.print("\nYour Answer: ");
+          ques = scan.nextLine();
+
+        /// else statement which traps user in loop until they enter valid input ///
+        } else {
+          System.out.print(
+              "Invalid input, you must enter either a,b,c or d. This does not affect your 2 tries. Please try again.\n\nYour Answer: ");
+          ques = scan.nextLine();
+        }
+      }
+      /// Displaying points to user  ///
+      points = points - (tries) * 10;
+      System.out.println("\nPoints: " + points);
+      
+
+      /////Question 6.1/////
+      
+      System.out.print("\n\n\n Question 6: Where is the axillary temperature taken?\n a) Ear \n b) Armpit \n c) Forehead \n d) Rectum \n\nYour Answer: ");
+      ///Getting user input, variable "ques"///
+      ques = scan.nextLine();
+      
+      /// While loop that enables user two tries per question if they get it wrong. ///
+      while (tries <= 1) {
+        /// if statement which breaks loop when answer correct, adding 10 points ///
+        if (ques.equalsIgnoreCase("b")) {
+          System.out.println("Correct!");
+          points = points + 10;
+          break;
+
+        /// else if statement which enables second try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+        } else if (tries == 1 && (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d"))) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+        /// else if statement which enables first try to place, checks if the input was valid and displays amount of tries left ///
+        } else if (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d")) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+          System.out.print("\nYour Answer: ");
+          ques = scan.nextLine();
+
+        /// else statement which traps user in loop until they enter valid input ///
+        } else {
+          System.out.print(
+              "Invalid input, you must enter either a,b,c or d. This does not affect your 2 tries. Please try again.\n\nYour Answer: ");
+          ques = scan.nextLine();
+        } 
+      }
+      /// Displaying points to user and resetting variables for next question ///
+      points = points - (tries) * 10;
+      System.out.println("\nPoints: " + points);
+      tries = 0;
+      userTries = 2;
+      
+    } else {
+      
+      ///// Question 4.2 /////
+      
+      System.out.print("\n\n\n Question 4: Triskaidekaphobia is the term for the fear of which number?\n a) 3 \n b) 13 \n c) 33 \n d) 99 \n\nYour Answer: ");
+      ///Getting user input, variable "ques"///
+      ques = scan.nextLine();
+
+      /// While loop that enables user two tries per question if they get it wrong. ///
+      while (tries <= 1) {
+        /// if statement which breaks loop when answer correct, adding 10 points ///
+        if (ques.equalsIgnoreCase("b")) {
+          System.out.println("Correct!");
+          points = points + 10;
+          break;
+
+        /// else if statement which enables second try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+        } else if (tries == 1 && (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d"))) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+        /// else if statement which enables first try to place, checks if the input was valid and displays amount of tries left ///
+        } else if (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d")) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+          System.out.print("\nYour Answer: ");
+          ques = scan.nextLine();
+
+        /// else statement which traps user in loop until they enter valid input ///
+        } else {
+          System.out.print(
+              "Invalid input, you must enter either a,b,c or d. This does not affect your 2 tries. Please try again.\n\nYour Answer: ");
+          ques = scan.nextLine();
+        }
+      }
+      /// Displaying points to user and resetting variables for next question ///
+      points = points - (tries) * 10;
+      System.out.println("\nPoints: " + points);
+      tries = 0;
+      userTries = 2;
+
+      
+      ///// Question 5.2 /////
+
+      System.out.print("\n\n\n Question 5: Which blood type is known as the \"universal recipient\"?\n a) A \n b) B \n c) O \n d) AB \n\nYour Answer: ");
+      ///Getting user input, variable "ques"///
+      ques = scan.nextLine();
+
+      /// While loop that enables user two tries per question if they get it wrong. ///
+      while (tries <= 1) {
+        /// if statement which breaks loop when answer correct, adding 10 points ///
+        if (ques.equalsIgnoreCase("d")) {
+          System.out.println("Correct!");
+          points = points + 10;
+          break;
+
+        /// else if statement which enables second try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+        } else if (tries == 1 && (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c"))) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+        /// else if statement which enables first try to place, checks if the input was valid and displays amount of tries left ///
+        } else if (ques.equalsIgnoreCase("a") || ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c")) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+          System.out.print("\nYour Answer: ");
+          ques = scan.nextLine();
+
+        /// else statement which traps user in loop until they enter valid input ///
+        } else {
+          System.out.print(
+              "Invalid input, you must enter either a,b,c or d. This does not affect your 2 tries. Please try again.\n\nYour Answer: ");
+          ques = scan.nextLine();
+        }
+      }
+      /// Displaying points to user and resetting variables for next question ///
+      points = points - (tries) * 10;
+      System.out.println("\nPoints: " + points);
+      tries = 0;
+      userTries = 2;
+
+      
+      ///// Question 6.2 /////
+      
+      System.out.print("\n\n\n Question 6: On which part of the body is an angioplasty performed?\n a) Blood vessel \n b) Lungs \n c) Muscles \n d) Bones \n\nYour Answer: ");
+      ///Getting user input, variable "ques"///
+      ques = scan.nextLine();
+
+      /// While loop that enables user two tries per question if they get it wrong. ///
+      while (tries <= 1) {
+        /// if statement which breaks loop when answer correct, adding 10 points ///
+        if (ques.equalsIgnoreCase("a")) {
+          System.out.println("Correct!");
+          points = points + 10;
+          break;
+
+        /// else if statement which enables second try to take place (this was used so the user is not asked further to give further input after ) and displays amount of tries left ///
+        } else if (tries == 1 && (ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d"))) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+
+        /// else if statement which enables first try to place, checks if the input was valid and displays amount of tries left ///
+        } else if (ques.equalsIgnoreCase("b") || ques.equalsIgnoreCase("c") || ques.equalsIgnoreCase("d")) {
+          tries = tries + 1;
+          userTries = userTries - 1;
+          System.out.println("Incorrect! You have " + userTries + " try/tries left.");
+          System.out.print("\nYour Answer: ");
+          ques = scan.nextLine();
+
+        /// else statement which traps user in loop until they enter valid input ///
+        } else {
+          System.out.print(
+              "Invalid input, you must enter either a,b,c or d. This does not affect your 2 tries. Please try again.\n\nYour Answer: ");
+          ques = scan.nextLine();
+        } 
+      }
+      /// Displaying points to user ///
+      points = points - (tries) * 10;
+      System.out.println("\nPoints: " + points);
+      
+    }
+      /// Indicating end of level two ///
+      System.out.println("\n\nEND OF LEVEL TWO!");
+
+    
+    
+    //////////////////// LEVEL THREE ////////////////////
+
+    
+    System.out.println("\n\nYou go into the elevator and press the button for the third floor...");
+
+    // Ascii elevator
+    System.out.println("           .---.");
+    System.out.println("          /__\\__\\");
+    System.out.println("     .---------------.");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     ||      |      ||");
+    System.out.println("     .---------------.");
+
+    System.out.println("\n\nAs you step out of the elevator, another nurse greets you and says:");
+
+    // Ascii nurse
+    System.out.println("         ,''@,");
+    System.out.println("         |.~.|");
+    System.out.println("         : - :");
+    System.out.println("          \\-/");
+    System.out.println("       .-|\\_/)-.");
+    System.out.println("      /  | Y -- \\");
+    System.out.println("     / /\\o    /\\ \\");
+    System.out.println("     \\ \\_|___|_/ /");
+    System.out.println("      \\_/     \\_/");
+    System.out.println("        |  _  |");
+    System.out.println("        |  |  |");
+    System.out.println("        (  |  )");
+    System.out.println("        |  |  |");
+    System.out.println("        |  |  |");
+    System.out.println("        |__|__|");
+    System.out.println("        (__|__)");
+    System.out.println("\"Welcome to the third and final level! Answer the questions to decide your fate!\"");
+
+    /// Showing user rules/stats for level two ///
+    System.out.println("\n\n\nLevel three:\n\n -Your points: " + points +" \n -Points gained/lost per question: 15 \n -Tries per question: 1");
+
+    /// If statement directing user to different set of questions based on points earned. Lowest points gets easiest question set (4 paths)///
+    if (points>=41){
+      
+      /////Question 7.1/////
+      
+      System.out.print("\n\n\nQuestion 7: The natural hallucinogen psilocybin is found in what?\n a) Marijuana \n b) Mushrooms \n c) Tobacco \n d) Poppy \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("b")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+          
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("a")|| ques.equalsIgnoreCase("c")|| ques.equalsIgnoreCase("d")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+          
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points);
+      
+      
+      /////Question 8.1/////
+      
+      System.out.print("\n\n\nQuestion 8: How many pairs of ribs are in a typical human body?\n a) 8 \n b) 10 \n c) 12 \n d) 14 \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("c")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("a")|| ques.equalsIgnoreCase("b")|| ques.equalsIgnoreCase("d")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points);
+
+      
+    } else if (points>=31){
+      
+      ///// Question 7.2 /////
+      
+      System.out.print("\n\n\nQuestion 7: What set of nerves is responsible for carrying information from the body to the brain?\n a) Sensory \n b) Motor \n c) Cranial \n d) Vertebral \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("a")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("b")|| ques.equalsIgnoreCase("c")|| ques.equalsIgnoreCase("d")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points);
+
+      
+      ///// Question 8.2 /////
+      
+      System.out.print("\n\n\nQuestion 8: In the systemic circulatory system, deoxygenated blood from the lower half of the body is returned to the heart via the:\n a) Superior Vena Cava \n b) Coronary Sinus Vein \n c) Aorta \n d) Inferior Vena Cava \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("d")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("a")|| ques.equalsIgnoreCase("b")|| ques.equalsIgnoreCase("c")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points);
+
+      
+    } else if (points>=21){
+
+      ///// Question 7.3 /////
+      
+      System.out.print("\n\n\nQuestion 7: A prominence called the olecranon process is found on the:\n a) Knee \n b) Elbow \n c) Hip \n d) Shoulder \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("b")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("a")|| ques.equalsIgnoreCase("c")|| ques.equalsIgnoreCase("d")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points); 
+
+      
+      ///// Question 8.3 /////
+      
+      System.out.print("\n\n\nQuestion 8: In order to assess a femoral pulse, you would palpate the patient::\n a) On the anterior surface of the foot \n b) Between the iliac crest and the coccyx \n c) Between the anterior and superior iliac spines \n d) In the groin \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("d")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("a")|| ques.equalsIgnoreCase("b")|| ques.equalsIgnoreCase("c")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points);
+
+      
+    } else {
+      
+      ///// Question 7.4 /////
+      
+      System.out.print("\n\n\nQuestion 7: The central nervous system is composed of the:\n a) Spinal cord and sensory nerves \n b) Motor and sensory nerves \n c) Brain and sensory nerves \n d) Brain and spinal cord \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("d")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("a")|| ques.equalsIgnoreCase("b")|| ques.equalsIgnoreCase("c")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points);
+      
+      //Question 8.4
+      System.out.print("\n\n\nQuestion 8: Red blood cells are not responsible for:\n a) Protecting the body against infection \n b) Carrying carbon dioxide \n c) Carrying oxygen \n d) Giving blood its colour  \n\nYour Answer: ");
+      /// Getting user input, variable "ques"///
+      ques=scan.nextLine();
+
+      /// while loop which runs to allow user 1 try and trap them in the loop if they have invalid input ///
+      while(true){
+        /// if statement for when user answers question correct, breaks loop and adds 15 points ///
+        if(ques.equalsIgnoreCase("a")){
+          System.out.println("Correct!");
+          points=points+15;
+          break;
+
+        /// else if statement for when user answers question incorrectly, breaks loop and takes away 15 points///
+        } else if (ques.equalsIgnoreCase("b")|| ques.equalsIgnoreCase("c")|| ques.equalsIgnoreCase("d")){
+          System.out.println("Incorrect!");
+          points=points-15;
+          break;
+
+        /// else statement traps user in loop until they give valid input ///
+        } else {
+          System.out.println("Invalid input, you must enter either a,b,c or d. This does not affect your answer. Please try again.\n\nYour Answer: ");
+          ques=scan.nextLine();
+      }
+      }
+      /// Displaying points to user ///
+      System.out.println("\nPoints: "+points);
+    }
+    /// Indicating end of level two ///
+    System.out.println("\n\nEND OF LEVEL THREE!");
+
+    
+    
+    //////////////////// FINAL MESSAGES ////////////////////
+    
+
+    /// if statement that gives you an outcome based on points earned, you need 45 or more points to win. ///
+    if(points>=45){
+      // Ascii fireworks above city with message //
+      System.out.println("                                   .''.       ");
+      System.out.println("       .''.      .        *''*    :_\\/_:     . ");
+      System.out.println("      :_\\/_:   _\\(/_  .:.*_\\/_*   : /\\ :  .'.:.'.");
+      System.out.println("  .''.: /\\ :   ./)\\   ':'* /\\ * :  '..'.  -=:o:=-");
+      System.out.println(" :_\\/_:'.:::.    ' *''*    * '.\\'/.' _\\(/_'.':'.'");
+      System.out.println(" : /\\ : :::::     *_\\/_*     -= o =-  /)\\    '  *");
+      System.out.println("  '..'  ':::'     * /\\ *     .'/.\\'.   '");
+      System.out.println("      *            *..*         :");
+      System.out.println("                   Congratulations! ");
+      System.out.println("               You escaped the hospital ");
+      System.out.println("               And Dr.Hybern was caught! ");
+      System.out.println("                      Good work! ");
+      System.out.println("                                 .''.");
+      System.out.println("       .''.             *''*    :_\\/_:     . ");
+      System.out.println("      :_\\/_:   .    .:.*_\\/_*   : /\\ :  .'.:.'.");
+      System.out.println("  .''.: /\\ : _\\(/_  ':'* /\\ *  : '..'.  -=:o:=-");
+      System.out.println(" :_\\/_:'.:::. /)\\*''*  .|.* '.\\'/.'_\\(/_'.':'.'");
+      System.out.println(" : /\\ : :::::  '*_\\/_* | |  -= o =- /)\\    '  *");
+      System.out.println("  '..'  ':::'   * /\\ * |'|  .'/.\\'.  '._____");
+      System.out.println("      *        __*..* |  |     :      |.   |' .---\"|");
+      System.out.println("       _*   .-'   '-. |  |     .--'|  ||   | _|    |");
+      System.out.println("    .-'|  _.|  |    ||   '-__  |   |  |    ||      |");
+      System.out.println("    |' | |.    |    ||       | |   |  |    ||      |");
+      System.out.println(" ___|  '-'     '    \"\"       '-'   '-.'    '`      |____");
+      System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+      
+    } else if (points>=25){
+      // Ascii dead patient with nurse //
+      System.out.println("            .---------.");
+      System.out.println("       _    |:: [-=-] |");
+      System.out.println("      | |   |_________|");
+      System.out.println("      |~|");
+      System.out.println("      |_|                    ,;;;;,");
+      System.out.println("       I\\  ,__ ,;;;, __,    ///\\\\\\\\\\");
+      System.out.println("       I |{   / x x \\   }   / \"  \\\\||");
+      System.out.println("       I | ) (   _   ) (    \\_= _///");
+      System.out.println("       I |{___'-. .-'___}\\___ )_\\");
+      System.out.println("       I ||~/,'~~~~~,\\~~|'---((  \\");
+      System.out.println("       I \\ //        \\\\ |     \\ \\ \\");
+      System.out.println("       I  \\/         // |     | /-/");
+      System.out.println("       I (/         (/  |     |/||\\");
+      System.out.println("       I  |             |     |    |");
+      System.out.println("       I  |             |     |____/");
+      System.out.println("       I  :-----_o_-----:      || |");
+      System.out.println("       I  | /~~|===|~~\\ |      (( |");
+      System.out.println("       I  ||   |===|   ||      ||_/");
+      System.out.println("      /^\\ \"~   '^^^'   \"\"     ((__|");
+      System.out.println("\n\n\nOH NO! YOU LOST! DR.HYBERN FOUND YOU AND PERFORMED EXPIREMENTS ON YOU! YOU DIED ON THE OPERATING TABLE! Please Play Again.");
+      
+    } else if(points>=5){
+      // Ascii medical gurney with medical supplies //
+      System.out.println("                      .___");
+      System.out.println("dWWb                  | |~|");
+      System.out.println("MM &                  | '.'");
+      System.out.println("qp -'                 |  (");
+      System.out.println(" .,______             |   (       ,. ");
+      System.out.println(" |(____|.\\            |    (     -.\\\"&    |");
+      System.out.println(" | \\     |            |  __)____\\  )/-'\\ |");
+      System.out.println(" |  |    |  |\\._______|_(X___|  '.-' ./' |");
+      System.out.println(" (_./    | _|____|____|_______.-' .-'/   |");
+      System.out.println(" | |     ||___________|________.-'   \\   |");
+      System.out.println(" | |\\          |______|______ |_____.-'--'");
+      System.out.println(" | | |    O---/_______|____o-/______ |    ");
+      System.out.println(" |_| |   -_-.##_______|_____##____g3_#.-_-");
+      System.out.println(" |__\\_\\  (_)       O--O--O             (_)");
+      System.out.println("\n\n\nOH NO! YOU LOST! DR.HYBERN HARVESTED YOUR ORGANS FOR HIS EXPIREMENTS! YOU DIED DURING SURGERY!");
+      
+    } else{
+      // Ascii grim reaper //
+      System.out.println("                                           .\"\"--.._");
+      System.out.println("                                           []      `'--.._");
+      System.out.println("                                           ||__           `'-,");
+      System.out.println("                                         `)||_ ```'--..       \\");
+      System.out.println("                     _                    /|//}        ``--._  |");
+      System.out.println("                  .'` `'.                /////}              `\\/");
+      System.out.println("                 /  .\"\"\".\\              //{///");
+      System.out.println("                /  /_  _`\\\\            // `||");
+      System.out.println("                | |(_)(_)||          _//   ||");
+      System.out.println("                | |  /\\  )|        _///\\   ||");
+      System.out.println("                | |L====J |       / |/ |   ||");
+      System.out.println("               /  /'-..-' /    .'`  \\  |   ||");
+      System.out.println("              /   |  :: | |_.-`      |  \\  ||");
+      System.out.println("             /|   `\\-::.| |          \\   | ||");
+      System.out.println("           /` `|   /    | |          |   / ||");
+      System.out.println("         |`    \\   |    / /          \\  |  ||");
+      System.out.println("        |       `\\_|    |/      ,.__. \\ |  ||");
+      System.out.println("        /                     /`    `\\ ||  ||");
+      System.out.println("       |           .         /        \\||  ||");
+      System.out.println("       |                     |         |/  ||");
+      System.out.println("       /         /           |         (   ||");
+      System.out.println("      /          .           /          )  ||");
+      System.out.println("     |            \\          |             ||");
+      System.out.println("    /             |          /             ||");
+      System.out.println("   |\\            /          |              ||");
+      System.out.println("   \\ `-._       |           /              ||");
+      System.out.println("    \\ ,//`\\    /`           |              ||");
+      System.out.println("     ///\\  \\  |             \\              ||");
+      System.out.println("    |||| ) |__/             |              ||");
+      System.out.println("    |||| `.(                |              ||");
+      System.out.println("    `\\\\` /`                 /              ||");
+      System.out.println("       /`                   /              ||");
+      System.out.println("      /                     |              ||");
+      System.out.println("     |                      \\              ||");
+      System.out.println("    /                        |             ||");
+      System.out.println("  /`                          \\            ||");
+      System.out.println("/`                            |            ||");
+      System.out.println("`-.___,-.      .-.        ___,'            ||");
+      System.out.println("         `---'`   `'----'`");
+      System.out.println("\n\n\nOH NO! YOU LOST! DR.HYBERN CAPTURED AND KILLED YOU AFTER YOUR SECOND FAILED ATTEMPT TO ESCAPE!");
+    }
+
+    
+    ////////// END OF GAME :) //////////
+
+    
+  }
+}
